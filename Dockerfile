@@ -14,6 +14,10 @@ RUN apk add --no-cache --virtual .persistent-deps \
 
 # Install ansible-deploy
 COPY ansible-deploy /usr/bin
+RUN apk update && apk add rsync python2 py-yaml; \
+# make some useful symlinks that are expected to exist
+  if [[ ! -e /usr/bin/python ]];        then ln -sf /usr/bin/python2.7 /usr/bin/python; fi; \
+  if [[ ! -e /usr/bin/python-config ]]; then ln -sf /usr/bin/python2.7-config /usr/bin/python-config; fi
 
 # Install Docker
 ENV DOCKER_VERSION 17.12.0-ce
