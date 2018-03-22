@@ -12,6 +12,9 @@ RUN apk add --no-cache --virtual .persistent-deps \
                 junit \
                 nodejs nodejs-npm
 
+# Install ansible-deploy
+COPY ansible-deploy /usr/bin
+
 # Install Docker
 ENV DOCKER_VERSION 17.12.0-ce
 RUN set -e; \
