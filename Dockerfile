@@ -10,7 +10,7 @@ RUN apk add --no-cache --virtual .build-deps \
 RUN apk add --no-cache --virtual .persistent-deps \
                 gettext \
                 junit \
-                nodejs nodejs-npm
+                nodejs nodejs-npm sudo
 
 # Install ansible-deploy
 COPY ansible-deploy /usr/bin
