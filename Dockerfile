@@ -36,11 +36,11 @@ RUN set -e; \
     rm -rf /opt/*
 
 # Install helm
-#ENV HELM_VERSION 2.6.0
-#RUN wget https://kubernetes-helm.storage.googleapis.com/helm-v${HELM_VERSION}-linux-amd64.tar.gz; \
-#    tar -zxvf helm-v${HELM_VERSION}-linux-amd64.tar.gz;  \
-#    cp linux-amd64/helm /usr/local/bin/helm; \
-#    rm -rf /opt/*;
+ENV HELM_VERSION 2.6.0
+RUN wget https://kubernetes-helm.storage.googleapis.com/helm-v${HELM_VERSION}-linux-amd64.tar.gz; \
+    tar -zxvf helm-v${HELM_VERSION}-linux-amd64.tar.gz;  \
+    cp linux-amd64/helm /usr/local/bin/helm; \
+    rm -rf /opt/*;
 
 # Cleanup
 RUN apk del --purge .build-deps; \
